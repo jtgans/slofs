@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+   echo "Usage: mkslofs <filename> [<label>]"
+   exit 1
+fi
+
+echo "Initializing $1..."
+sqlite3 -init -batch $1 < ../lib/schema.sql
+
+if [ "$2" != "" ]; then
+    sqlite3 $1 "UPDATE metadata SET label='$2'"
+fi
+
+echo "Initialization complete."

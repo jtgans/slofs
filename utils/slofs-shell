@@ -1,0 +1,11 @@
+#!/usr/bin/perl -w
+
+use strict;
+use English;
+
+use lib "../lib";
+
+use DBI;
+use SloFS::Shell;
+
+SloFS::Shell->main();
